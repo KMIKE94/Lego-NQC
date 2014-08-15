@@ -1,0 +1,57 @@
+task main()
+{
+  SetPower(OUT_A+OUT_B,0);
+   SetSensor(SENSOR_3,SENSOR_TOUCH);
+   SetSensor(SENSOR_1,SENSOR_LIGHT);
+
+  OnFwd(OUT_A+OUT_C);
+
+  int wallcount = 0;
+  while (SENSOR_1 != 42)
+  {
+     if (SENSOR_3 == 1)
+     {
+        wallcount++;
+
+        if(wallcount == 1)
+        {
+              OnRev(OUT_A+OUT_C); Wait (30);
+              OnFwd(OUT_A); Wait(50);
+              OnRev(OUT_C); Wait(50);
+              OnFwd(OUT_A+OUT_C); Wait(60);
+
+              if(SENSOR_3 == 0)
+              {
+                  wallcount == 0;
+              }
+        }
+        else if(wallcount == 2)
+        {
+             OnRev(OUT_A+OUT_C); Wait(30);
+             OnFwd(OUT_A); Wait(100);
+             OnRev(OUT_C); Wait(100);
+             OnFwd(OUT_A+OUT_C); Wait(60);
+
+              if(SENSOR_3 == 0)
+              {
+                  wallcount == 0;
+              }
+        }
+        else if(wallcount == 3)
+        {
+              OnRev(OUT_A+OUT_C); Wait (30);
+              OnFwd(OUT_A); Wait(50);
+              OnRev(OUT_C); Wait(50);
+              OnFwd(OUT_A+OUT_C); Wait(60);
+
+              if(SENSOR_3 == 0)
+              {
+                  wallcount == 0;
+              }
+        }
+
+     }
+
+  }
+
+}
